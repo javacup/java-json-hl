@@ -1,0 +1,12 @@
+.externalToolBuilders
+/.settings
+/target
+.classpath
+.settings
+.project
+/.DS_Store
+.DS_Store
+rebel.xml
+*.sql
+/target
+/src/main/java/META-INF/persistence.xml
