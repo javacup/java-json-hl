@@ -25,7 +25,7 @@ public class CodeSystemResults {
 	private String CodeSystem;
 	@JsonProperty("concepts")
 	@Valid
-	private Concepts concepts;
+	private List<Concepts> concepts;
 	@JsonProperty("attributes")
 	@Valid
 	private List<Attribute> attributes = new ArrayList<Attribute>();
@@ -56,7 +56,7 @@ public class CodeSystemResults {
 	 * @return The concepts
 	 */
 	@JsonProperty("concepts")
-	public Concepts getConcepts() {
+	public List<Concepts> getConcepts() {
 		return concepts;
 	}
 
@@ -66,7 +66,7 @@ public class CodeSystemResults {
 	 *            The concepts
 	 */
 	@JsonProperty("concepts")
-	public void setConcepts(Concepts concepts) {
+	public void setConcepts(List<Concepts> concepts) {
 		this.concepts = concepts;
 	}
 
