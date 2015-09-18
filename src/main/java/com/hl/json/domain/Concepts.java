@@ -24,7 +24,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class Concepts {
 
 	@JsonProperty("@code")
-	private String Code;
+	private String code;
 	@JsonProperty("description")
 	private String description;
 	@JsonProperty("attributes")
@@ -42,7 +42,7 @@ public class Concepts {
 	 */
 	@JsonProperty("@code")
 	public String getCode() {
-		return Code;
+		return code;
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class Concepts {
 	 */
 	@JsonProperty("@code")
 	public void setCode(String Code) {
-		this.Code = Code;
+		this.code = Code;
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class Concepts {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(Code).append(description).append(attributes).append(validityDateRanges)
+		return new HashCodeBuilder().append(code).append(description).append(attributes).append(validityDateRanges)
 				.append(additionalProperties).toHashCode();
 	}
 
@@ -142,7 +142,7 @@ public class Concepts {
 			return false;
 		}
 		Concepts rhs = ((Concepts) other);
-		return new EqualsBuilder().append(Code, rhs.Code).append(description, rhs.description)
+		return new EqualsBuilder().append(code, rhs.code).append(description, rhs.description)
 				.append(attributes, rhs.attributes).append(validityDateRanges, rhs.validityDateRanges)
 				.append(additionalProperties, rhs.additionalProperties).isEquals();
 	}

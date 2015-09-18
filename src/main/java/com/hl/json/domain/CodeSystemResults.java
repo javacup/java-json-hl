@@ -22,7 +22,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class CodeSystemResults {
 
 	@JsonProperty("@codeSystem")
-	private String CodeSystem;
+	private String codeSystem;
 	@JsonProperty("concepts")
 	@Valid
 	private List<Concepts> concepts;
@@ -38,7 +38,7 @@ public class CodeSystemResults {
 	 */
 	@JsonProperty("@codeSystem")
 	public String getCodeSystem() {
-		return CodeSystem;
+		return codeSystem;
 	}
 
 	/**
@@ -48,7 +48,7 @@ public class CodeSystemResults {
 	 */
 	@JsonProperty("@codeSystem")
 	public void setCodeSystem(String CodeSystem) {
-		this.CodeSystem = CodeSystem;
+		this.codeSystem = CodeSystem;
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class CodeSystemResults {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(CodeSystem).append(concepts).append(attributes)
+		return new HashCodeBuilder().append(codeSystem).append(concepts).append(attributes)
 				.append(additionalProperties).toHashCode();
 	}
 
@@ -119,7 +119,7 @@ public class CodeSystemResults {
 			return false;
 		}
 		CodeSystemResults rhs = ((CodeSystemResults) other);
-		return new EqualsBuilder().append(CodeSystem, rhs.CodeSystem).append(concepts, rhs.concepts)
+		return new EqualsBuilder().append(codeSystem, rhs.codeSystem).append(concepts, rhs.concepts)
 				.append(attributes, rhs.attributes).append(additionalProperties, rhs.additionalProperties).isEquals();
 	}
 

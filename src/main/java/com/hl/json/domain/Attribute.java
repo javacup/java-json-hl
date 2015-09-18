@@ -19,9 +19,9 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class Attribute {
 
 	@JsonProperty("@type")
-	private String Type;
+	private String type;
 	@JsonProperty("@name")
-	private String Name;
+	private String name;
 	@JsonProperty("value")
 	private String value;
 	@JsonIgnore
@@ -33,7 +33,7 @@ public class Attribute {
 	 */
 	@JsonProperty("@type")
 	public String getType() {
-		return Type;
+		return type;
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class Attribute {
 	 */
 	@JsonProperty("@type")
 	public void setType(String Type) {
-		this.Type = Type;
+		this.type = Type;
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class Attribute {
 	 */
 	@JsonProperty("@name")
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class Attribute {
 	 */
 	@JsonProperty("@name")
 	public void setName(String Name) {
-		this.Name = Name;
+		this.name = Name;
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class Attribute {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(Type).append(Name).append(value).append(additionalProperties).toHashCode();
+		return new HashCodeBuilder().append(type).append(name).append(value).append(additionalProperties).toHashCode();
 	}
 
 	@Override
@@ -113,7 +113,7 @@ public class Attribute {
 			return false;
 		}
 		Attribute rhs = ((Attribute) other);
-		return new EqualsBuilder().append(Type, rhs.Type).append(Name, rhs.Name).append(value, rhs.value)
+		return new EqualsBuilder().append(type, rhs.type).append(name, rhs.name).append(value, rhs.value)
 				.append(additionalProperties, rhs.additionalProperties).isEquals();
 	}
 

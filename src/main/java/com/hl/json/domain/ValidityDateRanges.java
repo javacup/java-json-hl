@@ -19,9 +19,9 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class ValidityDateRanges {
 
 	@JsonProperty("@startDate")
-	private String StartDate;
+	private String startDate;
 	@JsonProperty("@endDate")
-	private String EndDate;
+	private String endDate;
 	@JsonIgnore
 	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -31,7 +31,7 @@ public class ValidityDateRanges {
 	 */
 	@JsonProperty("@startDate")
 	public String getStartDate() {
-		return StartDate;
+		return startDate;
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class ValidityDateRanges {
 	 */
 	@JsonProperty("@startDate")
 	public void setStartDate(String StartDate) {
-		this.StartDate = StartDate;
+		this.startDate = StartDate;
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class ValidityDateRanges {
 	 */
 	@JsonProperty("@endDate")
 	public String getEndDate() {
-		return EndDate;
+		return endDate;
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class ValidityDateRanges {
 	 */
 	@JsonProperty("@endDate")
 	public void setEndDate(String EndDate) {
-		this.EndDate = EndDate;
+		this.endDate = EndDate;
 	}
 
 	@Override
@@ -80,7 +80,7 @@ public class ValidityDateRanges {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(StartDate).append(EndDate).append(additionalProperties).toHashCode();
+		return new HashCodeBuilder().append(startDate).append(endDate).append(additionalProperties).toHashCode();
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class ValidityDateRanges {
 			return false;
 		}
 		ValidityDateRanges rhs = ((ValidityDateRanges) other);
-		return new EqualsBuilder().append(StartDate, rhs.StartDate).append(EndDate, rhs.EndDate)
+		return new EqualsBuilder().append(startDate, rhs.startDate).append(endDate, rhs.endDate)
 				.append(additionalProperties, rhs.additionalProperties).isEquals();
 	}
 
