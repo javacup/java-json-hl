@@ -27,6 +27,8 @@ public class HLServiceTest {
 		postRequest.addHeader("Content-Type", "application/json");
 		postRequest.addHeader("Accept", "application/json");
 
+		String searchText = "chf";
+		
 		StringBuffer searchCriteria = new StringBuffer("{");
 		searchCriteria.append("\"@locale\": \"en_US\"");
 		searchCriteria.append(",");
@@ -46,7 +48,9 @@ public class HLServiceTest {
 		searchCriteria.append("{ \"@name\": \"TARGET_CODE_SYSTEM_FILTER\", \"@value\": \"ICD9CM\" }");
 		searchCriteria.append("]");
 		searchCriteria.append(",");
-		searchCriteria.append("\"searchText\": \"chf\",");
+		searchCriteria.append("\"searchText\": \"");
+		searchCriteria.append(searchText);
+		searchCriteria.append("\",");
 		searchCriteria.append("\"searchSpecifications\": [\"SNOMED_CLINICAL_FINDING_PFT\",   \"ICD10CM_ALL_PFT\", \"ICD9CM_ALL_PFT\"],");
 		searchCriteria.append("\"targetCodeSystems\": [\"SNOMED\", \"ICD9CM\", \"ICD10CM\"]");
 		searchCriteria.append("}");
