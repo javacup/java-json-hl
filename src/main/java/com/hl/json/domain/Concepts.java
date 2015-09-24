@@ -34,7 +34,7 @@ public class Concepts {
 	@Valid
 	private ValidityDateRanges validityDateRanges;
 	@JsonIgnore
-	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	private Map<String, Attribute> additionalProperties = new HashMap<String, Attribute>();
 
 	/**
 	 * 
@@ -118,12 +118,12 @@ public class Concepts {
 	}
 
 	@JsonAnyGetter
-	public Map<String, Object> getAdditionalProperties() {
+	public Map<String, Attribute> getAdditionalProperties() {
 		return this.additionalProperties;
 	}
 
 	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
+	public void setAdditionalProperty(String name, Attribute value) {
 		this.additionalProperties.put(name, value);
 	}
 
