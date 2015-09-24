@@ -18,21 +18,19 @@ import com.hl.json.domain.HLSearchResult;
 public class HLServiceTest {
 	public static void main(String[] args) {
 	try{	
-		
+		StringBuffer restUrl = new StringBuffer("http://hl-server.gs.local:8080/le-services/rest/query/search");
+
 		DefaultHttpClient httpClient = new DefaultHttpClient();
-		StringBuffer sbUrl = new StringBuffer("http://192.168.6.76:8080/le-services/rest/query/getLocales");
-		sbUrl = new StringBuffer("http://hl-server:8080/le-services/rest/query/search");
-		
-		HttpPost postRequest = new HttpPost(sbUrl.toString());
+		HttpPost postRequest = new HttpPost(restUrl.toString());
 		postRequest.addHeader("Content-Type", "application/json");
 		postRequest.addHeader("Accept", "application/json");
 
 		String searchText = "chf";
-		
+		searchText = "I50.1 I50.20 I50.21 I50.22 I50.23 I50.30 I50.31 I50.32 I50.33 I50.40 I50.41 I50.42 I50.43";
 		StringBuffer searchCriteria = new StringBuffer("{");
 		searchCriteria.append("\"@locale\": \"en_US\"");
 		searchCriteria.append(",");
-		searchCriteria.append("\"@maxRecords\":10");
+		searchCriteria.append("\"@maxRecords\":"+20);
 		searchCriteria.append(",");
 		searchCriteria.append("\"@requestId\": \"GB\"");
 		searchCriteria.append(",");
@@ -48,13 +46,10 @@ public class HLServiceTest {
 		searchCriteria.append("{ \"@name\": \"TARGET_CODE_SYSTEM_FILTER\", \"@value\": \"ICD9CM\" }");
 		searchCriteria.append("]");
 		searchCriteria.append(",");
-		searchCriteria.append("\"searchText\": \"");
-		searchCriteria.append(searchText);
-		searchCriteria.append("\",");
+		searchCriteria.append("\"searchText\": \""+searchText+"\",");
 		searchCriteria.append("\"searchSpecifications\": [\"SNOMED_CLINICAL_FINDING_PFT\",   \"ICD10CM_ALL_PFT\", \"ICD9CM_ALL_PFT\"],");
 		searchCriteria.append("\"targetCodeSystems\": [\"SNOMED\", \"ICD9CM\", \"ICD10CM\"]");
 		searchCriteria.append("}");
-		System.out.println(searchCriteria.toString());
 		StringEntity input = new StringEntity(searchCriteria.toString());
 		input.setContentType("application/json");
 		postRequest.setEntity(input);
@@ -66,11 +61,10 @@ public class HLServiceTest {
 
 		StringBuffer totalOutput = new StringBuffer();
 		String output;
-		System.out.println("Output from Server .... \n");
 		while ((output = br.readLine()) != null) {
-			System.out.println(output);
 			totalOutput.append(output);
 		}
+		System.out.println(totalOutput);
 		httpClient.getConnectionManager().shutdown();
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
